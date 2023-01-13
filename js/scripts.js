@@ -1,39 +1,47 @@
-form.addEventListener("submit", function(event) {
-  event.preventDefault();
-  // gather form data
-  const experienceLevel = document.getElementById("experience-level").value;
-  const projectType = document.getElementById("project-type").value;
-  const environment = document.getElementById("environment").value;
-  const music = document.getElementById("music").value;
-  const animal = document.getElementById("animal").value;
+const form = document.getElementById("survey-form");
+const resultDiv = document.getElementById("result");
 
-  // determine suggested language
-  let language = "";
-  if (experienceLevel === "beginner") {
-    language = "Python";
-  } else if (experienceLevel === "intermediate") {
-    if (projectType === "web") {
-      language = "JavaScript";
-    } else if (projectType === "mobile") {
-      language = "Swift";
-    } 
-  } else if (experienceLevel === "expert") {
-    if (projectType === "web") {
-      if(environment === "linux"){
-        language = "Go";
-      }else{
-        language = "Rust"
-      }
-    } else if (projectType === "mobile") {
-      if(animal === "dog"){
-        language = "C#";
-      }else{
-        language = "Java"
-      }
+form.addEventListener("submit", e => {
+  e.preventDefault();
+
+  const question1 = form.question1.value;
+  const question2 = form.question2.value;
+  const question3 = form.question3.value;
+  const question4 = form.question4.value;
+  const question5 = form.question5.value;
+
+  let result;
+
+  if (question1 === "web") {
+    if (question2 === "beginner") {
+      result = "JavaScript";
+    } else if (question4 === "dynamically") {
+      result = "Python";
+    } else {
+      result = "C#";
+    }
+  } else if (question1 === "mobile") {
+    if (question3 === "windows") {
+      result = "C#";
+    } else if (question5 === "mobile") {
+      result = "Swift";
+    } else {
+      result = "Java";
+    }
+  } else if (question1 === "desktop") {
+    if (question3 === "mac") {
+      result = "Swift";
+    } else {
+      result = "C++";
+    }
+  } else {
+    if (question4 === "dynamically") {
+      result = "Python";
+    } else {
+      result = "C++";
     }
   }
 
-  // show suggested language
-  resultDiv.innerHTML = `<h2>Based on your responses, we suggest learning <span class="language">${language}</span></h2>`;
+  resultDiv.innerHTML = `<h2>Based on your answers, we suggest you learn <strong>${result}</strong> first.</h2>`;
   resultDiv.style.display = "block";
 });
