@@ -1,35 +1,31 @@
-function hideResultsAndError() {
-  document.getElementById("error-message").setAttribute("class", "hidden");
-  document.getElementById("swings").setAttribute("class", "hidden");
-  document.getElementById("coaster").setAttribute("class", "hidden");
-  document.getElementById("tower").setAttribute("class", "hidden");
-  document.getElementById("sorry").setAttribute("class", "hidden");
-}
 
-window.onload = function() {
-  hideResultsAndError();
 
-  document.querySelector("form").onsubmit = function(event) {
+
+  document.getElementById("survey-form").addEventListener("submit", function(event) {
     event.preventDefault();
-    hideResultsAndError();
-    const age = parseInt(document.querySelector("input#age").value);
-    const height = parseInt(document.querySelector("input#height").value);
-
-    if (age && height) {
-      if (age >= 12 && height >= 60) {
-        document.getElementById("swings").removeAttribute("class");
-        document.getElementById("coaster").removeAttribute("class");
-        document.getElementById("tower").removeAttribute("class");
-      } else if (age >= 12 || height >= 48) {
-        document.getElementById("swings").removeAttribute("class");
-        document.getElementById("coaster").removeAttribute("class");
-      } else if (age >= 6) {
-        document.getElementById("swings").removeAttribute("class");
-      } else {
-        document.getElementById("sorry").removeAttribute("class");
-      }
+  
+    // Get user's answers to the survey questions
+    var question1 = document.getElementById("question1").value;
+    var question2 = document.getElementById("question2").value;
+    var question3 = document.getElementById("question3").value;
+    var question4 = document.getElementById("question4").value;
+    var question5 = document.getElementById("question5").value;
+  
+    // Initialize a variable to store the suggested language
+    var suggestedLanguage;
+  
+    // Use branching logic to determine the suggested language based on the user's answers
+    if (question1 === "web") {
+      suggestedLanguage = "JavaScript";
+    } else if (question1 === "mobile") {
+      suggestedLanguage = "Swift";
+    } else if (question1 === "desktop") {
+      suggestedLanguage = "C#";
     } else {
-      document.getElementById("error-message").removeAttribute("class");
+      suggestedLanguage = "Python";
     }
-  };
-};
+  
+    // Display the suggested language to the user
+    var resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = "Based on your answers, we suggest you learn " + suggestedLanguage + " first.";
+  });

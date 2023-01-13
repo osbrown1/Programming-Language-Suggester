@@ -2,7 +2,20 @@
   display: none;
 }
 
-#error-message {
-  font-weight: 600; 
-  color: red;
+body {
+  font-family: Arial, sans-serif;
 }
+
+#survey-form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+#submit-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
+
