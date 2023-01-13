@@ -1,11 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
-  <title>Document</title>
+  <title>Programming Language Suggester</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  
+  <h1>Welcome to the Programming Language Suggester</h1>
+  <form id="survey-form">
+    <label>What is your experience level with programming?</label>
+    <select id="experience-level">
+      <option value="beginner">Beginner</option>
+      <option value="intermediate">Intermediate</option>
+      <option value="expert">Expert</option>
+    </select>
+
+    <label>What are you interested in?</label>
+    <select id="project-type">
+      <option value="web">Web Development</option>
+      <option value="mobile">Mobile Development</option>
+      <option value="desktop">Desktop Development</option>
+    </select>
+
+    <label>Which do you prefer?</label>
+    <select id="environment">
+      <option value="windows">Windows</option>
+      <option value="mac">Mac</option>
+      <option value="linux">Linux</option>
+    </select>
+
+    <label>What's your favorite candy?</label>
+    <select id="candy">
+      <option value="skittles">skittles</option>
+      <option value="hershy's">hershy's</option>
+      <option value="twizzlers">twizzlers</option>
+    </select>
+
+    <label>Who is your favorite super hero?</label>
+    <select id="hero">
+      <option value="wonderwoman">Dog</option>
+      <option value="superman">Cat</option>
+      <option value="batman">Bird</option>
+    </select>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="result"></div>
+
 </body>
 </html>
