@@ -1,51 +1,39 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Programming Language Suggester</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js"></script>
-  </head>
-  <body>
-    <h1>Welcome to the Programming Language Suggester</h1>
-    <form id="survey-form">
-      <label for="question1">What type of development are you interested in?</label>
-      <select id="question1" name="question1">
-        <option value="web">Web Development</option>
-        <option value="mobile">Mobile Development</option>
-        <option value="desktop">Desktop Development</option>
-        <option value="game">Game Development</option>
-      </select>
-      
-      <label for="question2">What is your experience level with programming?</label>
-      <select id="question2" name="question2">
-        <option value="beginner">Beginner</option>
-        <option value="intermediate">Intermediate</option>
-        <option value="expert">Expert</option>
-      </select>
-      
-      <label for="question3">Which operating system do you prefer to work with?</label>
-      <select id="question3" name="question3">
-        <option value="windows">Windows</option>
-        <option value="mac">Mac</option>
-        <option value="linux">Linux</option>
-      </select>
-      
-      <label for="question4">Do you prefer a statically or dynamically typed language?</label>
-      <select id="question4" name="question4">
-        <option value="statically">Statically typed</option>
-        <option value="dynamically">Dynamically typed</option>
-      </select>
-      
-      <label for="question5">Which type of Application development you are interested?</label>
-      <select id="question5" name="question5">
-        <option value="web">Web Application</option>
-        <option value="mobile">Mobile Application</option>
-        <option value="desktop">Desktop Application</option>
-      </select>
-      
-      <input type="submit" value="Submit">
-    </form>
-    <div id="result"></div>
-    
-  </body>
+<html lang="en-US">
+<head>
+  <title>Programming Language Selector</title>
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <script src="js/scripts.js"></script>
+</head>
+<body>
+  <h1>Welcome to Owen's Programming Language Selector</h1>
+  <form id="calculator">
+    <label for="input1">1st number:</label>
+    <input id="input1" type="text">
+    <label for="input2">2nd number:</label>
+    <input id="input2" type="text">
+
+    <label>
+      <input type="radio" name="operator" value="add">
+      add
+    </label>
+    <label>
+      <input type="radio" name="operator" value="subtract">
+      subtract
+    </label>
+    <label>
+      <input type="radio" name="operator" value="multiply">
+      multiply
+    </label>
+    <label>
+      <input type="radio" name="operator" value="divide">
+      divide
+    </label>
+
+    <button type="submit" class="btn">Go!</button>
+  </form>
+
+  <h2>Results</h2>
+  <p id="output"></p>
+</body>
 </html>

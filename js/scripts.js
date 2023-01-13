@@ -1,50 +1,42 @@
-window.onload = function() {
-  const form = document.getElementById("survey-form");
-  const resultDiv = document.getElementById("result");
+// Business Logic
+function add(num1, num2) {
+  return num1 + num2;
+}
 
-  form.addEventListener("submit", e => {
-    console.log("form submitted");
-    e.preventDefault();
+function subtract(num1, num2) {
+  return num1 - num2;
+}
 
-    const question1 = form.question1.value;
-    const question2 = form.question2.value;
-    const question3 = form.question3.value;
-    const question4 = form.question4.value;
-    const question5 = form.question5.value;
+function multiply(num1, num2) {
+  return num1 * num2;
+}
 
-    let result;
+function divide(num1, num2) {
+  return num1 / num2;
+}
 
-    if (question1 === "web") {
-      if (question2 === "beginner") {
-        result = "JavaScript";
-      } else if (question4 === "dynamically") {
-        result = "Python";
-      } else {
-        result = "C#";
-      }
-    } else if (question1 === "mobile") {
-      if (question3 === "windows") {
-        result = "C#";
-      } else if (question5 === "mobile") {
-        result = "Swift";
-      } else {
-        result = "Java";
-      }
-    } else if (question1 === "desktop") {
-      if (question3 === "mac") {
-        result = "Swift";
-      } else {
-        result = "C++";
-      }
-    } else {
-      if (question4 === "dynamically") {
-        result = "Python";
-      } else {
-        result = "C++";
-      }
-    }
+// User Interface Logic
+function handleCalculation(event) {
+  event.preventDefault();
+  const number1 = parseInt(document.querySelector("input#input1").value);
+  const number2 = parseInt(document.querySelector("input#input2").value);
+  const operator = document.querySelector("input[name='operator']:checked").value;
 
-    resultDiv.innerHTML = `<h2>Based on your answers, we suggest you learn <strong>${result}</strong> first.</h2>`;
-    resultDiv.style.display = "block";
-  });
-};
+  let result;
+  if (operator === "add") {
+    result = add(number1, number2);
+  } else if (operator === "subtract") {
+    result = subtract(number1, number2);
+  } else if (operator === "multiply") {
+    result = multiply(number1, number2);
+  } else if (operator === "divide") {
+    result = divide(number1, number2);
+  }
+
+  document.getElementById("output").innerText = result;
+}
+
+window.addEventListener("load", function() {
+  const form = document.getElementById("calculator");
+  form.addEventListener("submit", handleCalculation);
+});
