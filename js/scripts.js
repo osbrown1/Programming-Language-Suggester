@@ -1,42 +1,35 @@
-// Business Logic
-function add(num1, num2) {
-  return num1 + num2;
+function hideResultsAndError() {
+  document.getElementById("error-message").setAttribute("class", "hidden");
+  document.getElementById("swings").setAttribute("class", "hidden");
+  document.getElementById("coaster").setAttribute("class", "hidden");
+  document.getElementById("tower").setAttribute("class", "hidden");
+  document.getElementById("sorry").setAttribute("class", "hidden");
 }
 
-function subtract(num1, num2) {
-  return num1 - num2;
-}
+window.onload = function() {
+  hideResultsAndError();
 
-function multiply(num1, num2) {
-  return num1 * num2;
-}
+  document.querySelector("form").onsubmit = function(event) {
+    event.preventDefault();
+    hideResultsAndError();
+    const age = parseInt(document.querySelector("input#age").value);
+    const height = parseInt(document.querySelector("input#height").value);
 
-function divide(num1, num2) {
-  return num1 / num2;
-}
-
-// User Interface Logic
-function handleCalculation(event) {
-  event.preventDefault();
-  const number1 = parseInt(document.querySelector("input#input1").value);
-  const number2 = parseInt(document.querySelector("input#input2").value);
-  const operator = document.querySelector("input[name='operator']:checked").value;
-
-  let result;
-  if (operator === "add") {
-    result = add(number1, number2);
-  } else if (operator === "subtract") {
-    result = subtract(number1, number2);
-  } else if (operator === "multiply") {
-    result = multiply(number1, number2);
-  } else if (operator === "divide") {
-    result = divide(number1, number2);
-  }
-
-  document.getElementById("output").innerText = result;
-}
-
-window.addEventListener("load", function() {
-  const form = document.getElementById("calculator");
-  form.addEventListener("submit", handleCalculation);
-});
+    if (age && height) {
+      if (age >= 12 && height >= 60) {
+        document.getElementById("swings").removeAttribute("class");
+        document.getElementById("coaster").removeAttribute("class");
+        document.getElementById("tower").removeAttribute("class");
+      } else if (age >= 12 || height >= 48) {
+        document.getElementById("swings").removeAttribute("class");
+        document.getElementById("coaster").removeAttribute("class");
+      } else if (age >= 6) {
+        document.getElementById("swings").removeAttribute("class");
+      } else {
+        document.getElementById("sorry").removeAttribute("class");
+      }
+    } else {
+      document.getElementById("error-message").removeAttribute("class");
+    }
+  };
+};
