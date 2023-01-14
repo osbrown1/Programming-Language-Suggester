@@ -1,41 +1,28 @@
-// Get references to the form, result div, and form elements
+function handleSelect(event) {
+  event.preventDefault();
 const form = document.getElementById("survey-form");
 const result = document.getElementById("result");
 const experience = document.getElementById("experience");
 const goal = document.getElementById("goal");
 const platform = document.getElementById("platform");
-const paradigm = document.getElementById("paradigm");
+const color = document.getElementById("color");
 const speed = document.getElementById("speed");
-
-// Add a submit event listener to the form
-form.addEventListener("submit", e => {
-  e.preventDefault();
-  // Clear any previous result
-  result.innerHTML = "";
-
-  // Get the user's selections
-  const experienceValue = experience.value;
-  const goalValue = goal.value;
-  const platformValue = platform.value;
-  const paradigmValue = paradigm.value;
-  const speedValue = speed.value;
-
-  // Use the selections to determine a language suggestion
+}
+  
   let suggestion = "";
-  if (experienceValue === "none" && goalValue === "web-development") {
+  if (experience.value === "none" && goal.value === "web-development") {
     suggestion = "JavaScript";
-  } else if (experienceValue === "some" && goalValue === "data-science") {
+  } else if (goal.value === "data-science" && color.value === "green") {
     suggestion = "Python";
-  } else if (platformValue === "desktop" && paradigmValue === "object-oriented") {
-    suggestion = "C#";
-  } else if (goalValue === "game-development" && speedValue === "important") {
+  } else if (platform.value === "desktop" && speed.value === "super important") {
     suggestion = "C++";
-  } else if (experienceValue === "experienced" && paradigmValue === "functional") {
-    suggestion = "Scala";
+  } else if (goal.value === "money" && color.value === "blue") {
+    suggestion = "Java";
   } else {
-    suggestion = "There is no suggestion for you";
+    suggestion = "No language suggestion";
   }
 
-  // Display the suggestion
-  result.innerHTML = `<p>Based on your selections, we suggest learning <strong>${suggestion}</strong>.</p>`;
+  addEventListener("load", function() {
+  document.getElementById("survey-form").addEventListener("submit", handleSelect);
 });
+
