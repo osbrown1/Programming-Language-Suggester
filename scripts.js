@@ -1,42 +1,41 @@
+// Get references to the form, result div, and form elements
 const form = document.getElementById("survey-form");
-const resultDiv = document.getElementById("result");
+const result = document.getElementById("result");
+const experience = document.getElementById("experience");
+const goal = document.getElementById("goal");
+const platform = document.getElementById("platform");
+const paradigm = document.getElementById("paradigm");
+const speed = document.getElementById("speed");
 
+// Add a submit event listener to the form
 form.addEventListener("submit", e => {
   e.preventDefault();
-  const question1 = document.getElementById("question1").value;
-  const question2 = document.getElementById("question2").value;
-  const question3 = document.getElementById("question3").value;
-  const question4 = document.getElementById("question4").value;
-  const question5 = document.getElementById("question5").value;
+  // Clear any previous result
+  result.innerHTML = "";
 
-  let result = "Based on your answers, we recommend: ";
+  // Get the user's selections
+  const experienceValue = experience.value;
+  const goalValue = goal.value;
+  const platformValue = platform.value;
+  const paradigmValue = paradigm.value;
+  const speedValue = speed.value;
 
-  if (question1 === "web") {
-    if (question2 === "none") {
-      result += "JavaScript (with a framework such as React or Angular)";
-    } else if (question2 === "some") {
-      result += "Python (with a framework such as Django or Flask)";
-    } else if (question2 === "experienced") {
-      result += "TypeScript (with a framework such as React or Angular)";
-    }
-  } else if (question1 === "mobile") {
-    if (question2 === "none") {
-      result += "Swift (for iOS) or Kotlin (for Android)";
-    } else if (question2 === "some") {
-      result += "React Native";
-    } else if (question2 === "experienced") {
-      result += "Flutter";
-    }
-  } else if (question1 === "desktop") {
-    if (question2 === "none") {
-      result += "C# (with a framework such as WPF or Windows Forms)";
-    } else if (question2 === "some") {
-      result += "C++ (with a framework such as Qt or wxWidgets)";
-    } else if (question2 === "experienced") {
-      result += "Rust (with a framework such as GTK or QT)";
-    }
-  } else if (question1 === "other") {
-    result += "It depends on the specific requirements of your application.";
+  // Use the selections to determine a language suggestion
+  let suggestion = "";
+  if (experienceValue === "none" && goalValue === "web-development") {
+    suggestion = "JavaScript";
+  } else if (experienceValue === "some" && goalValue === "data-science") {
+    suggestion = "Python";
+  } else if (platformValue === "desktop" && paradigmValue === "object-oriented") {
+    suggestion = "C#";
+  } else if (goalValue === "game-development" && speedValue === "important") {
+    suggestion = "C++";
+  } else if (experienceValue === "experienced" && paradigmValue === "functional") {
+    suggestion = "Scala";
+  } else {
+    suggestion = "There is no suggestion for you";
   }
-  resultDiv.innerHTML = result;
+
+  // Display the suggestion
+  result.innerHTML = `<p>Based on your selections, we suggest learning <strong>${suggestion}</strong>.</p>`;
 });

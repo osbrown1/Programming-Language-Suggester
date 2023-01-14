@@ -2,53 +2,53 @@
 <html>
   <head>
     <title>Programming Language Suggester</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="scripts.js"></script>
   </head>
   <body>
-    <h1> Welcome to Owen's Programming Language Suggester</h1>
+    <h1>Programming Language Suggester</h1>
     <form id="survey-form">
-      <label for="question1">What type of application do you want to build?</label>
-      <select id="question1" name="question1">
-        <option value="web">Web</option>
-        <option value="mobile">Mobile</option>
-        <option value="desktop">Desktop</option>
-        <option value="other">Other</option>
-      </select>
-      <br><br>
-      <label for="question2">What is your previous experience with programming?</label>
-      <select id="question2" name="question2">
+      <label for="experience">How much experience do you have with programming?</label>
+      <select id="experience" name="experience">
         <option value="none">None</option>
         <option value="some">Some</option>
         <option value="experienced">Experienced</option>
       </select>
-      <br><br>
-      <label for="question3">What is the primary purpose of your application?</label>
-      <select id="question3" name="question3">
-        <option value="business">Business</option>
-        <option value="entertainment">Entertainment</option>
-        <option value="utility">Utility</option>
-        <option value="other">Other</option>
+
+      <label for="goal">What is your primary goal for learning a programming language?</label>
+      <select id="goal" name="goal">
+        <option value="web-development">Web Development</option>
+        <option value="data-science">Data Science</option>
+        <option value="game-development">Game Development</option>
+        <option value="system-administration">System Administration</option>
       </select>
-      <br><br>
-      <label for="question4">Which platform do you want to target?</label>
-      <select id="question4" name="question4">
-        <option value="windows">Windows</option>
-        <option value="macos">macOS</option>
-        <option value="linux">Linux</option>
-        <option value="other">Other</option>
+
+      <label for="platform">Which platform are you primarily interested in developing for?</label>
+      <select id="platform" name="platform">
+        <option value="web">Web</option>
+        <option value="desktop">Desktop</option>
+        <option value="mobile">Mobile</option>
       </select>
-      <br><br>
-      <label for="question5">How much time are you willing to invest in learning a new language?</label>
-      <select id="question5" name="question5">
-        <option value="little">Little</option>
-        <option value="some">Some</option>
-        <option value="lots">Lots</option>
+
+      <label for="paradigm">Which programming paradigm do you prefer?</label>
+      <select id="paradigm" name="paradigm">
+        <option value="object-oriented">Object-Oriented</option>
+        <option value="functional">Functional</option>
+        <option value="procedural">Procedural</option>
       </select>
-      <br><br>
-      <button type="submit" class="submit-button">Submit</button>
+
+      <label for="speed">How important is the speed of the language to you?</label>
+      <select id="speed" name="speed">
+        <option value="not-important">Not Important</option>
+        <option value="somewhat-important">Somewhat Important</option>
+        <option value="important">Important</option>
+      </select>
+
+      <button type="submit">Submit</button>
     </form>
+
     <div id="result"></div>
-   <h2>Results</h2>
+
+  
   </body>
 </html>
