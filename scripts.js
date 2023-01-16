@@ -21,10 +21,10 @@ function handleSelect(event) {
   } else {
     suggestion = "Hmm try different options";
   }
-  document. getElementById("result").innerText = suggestion; //TODO replace with update the HTML string
+  document. getElementById("result").innerText = suggestion; 
 }
   
-  //make sure the elements are loaded before adding listener
+  
     addEventListener("load", function() {
      document.getElementById("survey-form").addEventListener("submit", handleSelect);
    });

@@ -1,7 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  background-color: rgba(23, 206, 151, 0.868);
+  background-color: rgba(249, 216, 123, 0.772);
 }
 
 form {
@@ -27,9 +27,22 @@ select {
 button {
   background-color: #4CAF50;
   color: white;
-}
+  font-size: x-large;
+  }
 
 
 .hidden {
   display: none;
+}
+
+p {
+  font-size: x-large;
+}
+
+div {
+  font-size: xx-large;
+}
+
+h1 {
+  background-color: aqua;
 }
