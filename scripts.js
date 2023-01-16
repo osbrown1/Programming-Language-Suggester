@@ -9,6 +9,7 @@ function handleSelect(event) {
   const platform = document.getElementById("platform");
   const color = document.getElementById("color");
   const speed = document.getElementById("speed");
+  
   let suggestion = "";
   if (experience.value === "none" && goal.value === "web-development") {
     suggestion = "JavaScript";
@@ -24,7 +25,6 @@ function handleSelect(event) {
   document. getElementById("result").innerText = suggestion; 
 }
   
-  
-    addEventListener("load", function() {
-     document.getElementById("survey-form").addEventListener("submit", handleSelect);
-   });
+addEventListener("load", function() {
+  document.getElementById("survey-form").addEventListener("submit", handleSelect);
+  });
