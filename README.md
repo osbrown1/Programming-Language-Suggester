@@ -23,7 +23,7 @@ _{This is a form designed to help the user choose their preferred programming la
 
 ## Known Bugs
 
-* submit button not displaying output
+* None
 
 ## License
 
